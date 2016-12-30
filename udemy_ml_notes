@@ -1,0 +1,31 @@
+***************************
+*** Notes Online Course ***
+***************************
+
+
+
+
+
+
+--- PART 1 - Data preprocessing ---
+* In the dataset, find out the independent and dependent cols 
+* When running file in python anaconda console: 
+  <highlight then control + enter> 
+* In R we dont need
+
+* Based on the dataset, lets set to X the MATRIX OF FEATURES, 
+* to y the DEPENDEND DATA
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 3].values
+
+* Rows are OBSERVATIONS
+* Columns are the FEATURES, and DEPENDEND DATA
+
+* Missing data: use mean
+
+* Eventually Categorical Data, and why
+
+--- PART 0 - Requirements ---
+
+R Studio
+Python 3.5 + Anaconda IDE (numPy, Pandas..)

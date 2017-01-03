@@ -28,3 +28,23 @@ regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_pred = regressor.predict(X_test)
+y_pred_train = regressor.predict(X_train)
+
+# Visualising the ***Training*** set results
+plt.scatter(X_train, y_train, color='red')
+plt.plot(X_train, y_pred_train, color='blue')
+plt.title('Salary vs Experience (TRAINING set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+
+# Visualising the ***Test*** set results
+plt.scatter(X_test, y_test, color='red')
+# no need to change these as the lin regression line is already done, so..
+plt.plot(X_train, y_pred_train, color='green')
+plt.title('Salary vs Experience (TEST set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+
+

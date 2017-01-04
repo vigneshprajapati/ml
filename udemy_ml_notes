@@ -1,7 +1,9 @@
 ***************************
 *** Notes Online Course ***
 ***************************
-
+PYTHON: cmd + i           *
+R     : fn F1 R           *
+***************************
 
 --- PART 2 - Regression Models ---
 SLR:
@@ -15,7 +17,10 @@ b1 the coefficient, a unit change (slope)
 The line is the modelled data
 - take + or - distance, square them SUM(y-y^)^2
 
-* So once data is prepared, lets use Python to apply SLR model to it :) 
+* So once data is prepared, lets use Python, then R, to apply SLR model to it :) 
+
+* Next Multiple Linear Regression, with multiple dependent data
+
 
 
 

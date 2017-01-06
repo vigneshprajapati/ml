@@ -48,6 +48,9 @@ The line is the modelled data
  - Then Build your Model, step by step:
  
  * Basically, remove X data garbage: But explain why you can't use all 1000 vars...
+ * Below are the methods, we used 2.Backward Elimination in example
+ 
+ 
  
  1. ALL-IN
 -------------------------------------------------

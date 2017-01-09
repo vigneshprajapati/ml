@@ -1,4 +1,12 @@
-# Data Preprocessing template
+# Data Preprocessing MLR
+
+##################################
+### check code     : cmd + i   ###
+### run code       : cmd enter ###
+### set working dir: Fn F5     ###
+##################################
+
+# Import libraries
 
 # Importing the libraries
 import numpy as np

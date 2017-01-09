@@ -2,23 +2,124 @@
    Misc Notes Online Course
 ##################################
 
-########### PYTHON ###############
-### check code     : cmd + i   ###
-### run code       : cmd enter ###
-### set working dir: Fn F5     ###
-##################################
+############ PYTHON ###############
+### check code      : cmd + i   ###
+### run code        : cmd enter ###
+### set working dir : Fn F5     ###
+###################################
 
-############### R ###################
-### check code     : Fn F1        ###
-### run code       :              ###
-### set working dir: files 'more' ###
-#####################################
+############### R ####################
+### check code      : Fn F1        ###
+### run code        : cmd enter    ###
+### set working dir : files 'more' ###
+######################################
 
 
 
 ####### PART 2 - Regression Models #############################
 
+
+
+### SVR ###
+------------------------------
+
+- SUPPORT VECTOR REGRESSION
+- 
+
+
+
+### PR ###
+------------------------------
+
+- POLYNOMINAL REGRESSION
+- 
+
+
+### PLR ###
+------------------------------
+
+- POLINIMIAL LINEAR REGRSSION
+- Although X is exponential, the coefficients are still linear
+- Its just a version of MLR
+  y      = b0 + b1*x1 + b2*x1^2 ... b4*D1
+  
+
+
+
+### MLR ###
+------------------------------
+
+* Next Multiple Linear Regression, with multiple dependent data
+ - Many records, but Profit column being the depended var
+  y      = b0 + b1*x1 + b2*x2 + b2*x3 ... b4*D1  //a straight line, but steeper 
+  Profit        R&D     Expense
+  
+                       D1   D2
+  State is categorical NY   CA (Dummay vars, but you ever incl only N-1)
+                        1   0
+                        0   1
+                        
+- Then Build your Model, step by step:
+   - Basically, remove X data garbage: But explain why you can't use all 1000 vars...
+   - Below are the methods, we used 2.Backward Elimination in example
+
+   
+<<< ALL-IN >>> 
+   
+   - Prior knowledge, all these are the true predictors
+   - Framework dictates to use all of them
+
+   
+<<< BACKWARD SELECTION >>>
+  
+  - 1. significance level SL 0.05
+  - 2. Fit the full model, everything
+  - 3. Consider predictor with highest P-Val:
+      if P > SL {
+        step 4
+        } else {
+            goto 6
+            }
+  - 4. Remove the predictor
+  - 5. Fit model without this var
+  - 6. FIN
+
+  
+<<< FORWARD SELECTION >>>
+
+  - 1. significance level SL 0.05
+  - 2. Fit the full model, everything, select the one with lowest P-val
+  - 3. Keep this var and fit all possible models with one more predictor in addition to it
+  - 4. Out of all these 2var models, consider the predictor with lowest P-Value
+      if P < SL {
+         goto step 4
+         } else {
+             goto FIN with the previous model
+             }
+  - 5. FIN
+
+  
+<<< BIDEIRECTIONAL ELIMINATION >>>
+
+  - 1. significance level to enter SLENTER 0.05
+     significance level to stay  SLSTAY 0.05
+  - 2. Next step of Forward Selection
+     New vars must have P < SLENTER
+  - 3. Perform all steps of Backward Elimination
+     Old vars must have P < SLSTAY
+  - 4. No new vars can enter, no old vars can exit
+  - 5. FIN
+ 
+ 
+<<< SCORE COMP >>> (meh, exponentially)
+
+  - Compare all possible models
+     2^N - 1, so 10 cols(x) 1023 possibilities
+
+
+   
 ### SLR ###
+------------------------------
 
      y      = b0 + b1*x1          //a straight best line, trend 
 e.g. salary = b0 + b1*Experience
@@ -33,77 +134,8 @@ The line is the modelled data
 
 * So once data is prepared, lets use Python, then R, to apply SLR model to it :) 
 
-### MLR ###
 
-* Next Multiple Linear Regression, with multiple dependent data
- - Many records, but Profit column being the depended var
-  y      = b0 + b1*x1 + b2*x2 ... b4*D1  //a straight line, but steeper 
-  Profit        R&D     Expense
-  
-                       D1   D2
-  State is categorical NY   CA (Dummay vars, but you ever incl only N-1)
-                        1   0
-                        0   1
-                        
- - Then Build your Model, step by step:
- 
- * Basically, remove X data garbage: But explain why you can't use all 1000 vars...
- * Below are the methods, we used 2.Backward Elimination in example
- 
- 
- 
- 1. ALL-IN
--------------------------------------------------
-  * Prior knowledge, these are the true predictors
-  * Framework dictates
-
- 2. BACKWARD SELECTION
--------------------------------------------------
-  1. significance level SL 0.05
-  2. Fit the full model, everything
-  3. Consider predictor with highest P-Val:
-      if P > SL {
-        step 4
-        } else {
-            goto 6
-            }
-  4. Remove the predictor
-  5. Fit model without this var
-  6. FIN
-  
- 3. FORWARD SELECTION
--------------------------------------------------
-  1. significance level SL 0.05
-  2. Fit the full model, everything, select the one with lowest P-val
-  3. Keep this var and fit all possible models with one more predictor in addition to it
-  4. Out of all these 2var models, consider the predictor with lowest P-Value
-      if P < SL {
-         goto step 4
-         } else {
-             goto FIN with the previous model
-             }
-  5. FIN
-  
- 4. BIDEIRECTIONAL ELIMINATION
--------------------------------------------------
-  1. significance level to enter SLENTER 0.05
-     significance level to stay  SLSTAY 0.05
-  2. Next step of Forward Selection
-     New vars must have P < SLENTER
-  3. Perform all steps of Backward Elimination
-     Old vars must have P < SLSTAY
-  4. No new vars can enter, no old vars can exit
-  5. FIN
- 
- 
-5. SCORE COMP (meh, exponentially)
--------------------------------------------------
-  1. Compare all possible models
-     2^N - 1, so 10 cols(x) 1023 possibilities
- 
- 
- 
-                        
+                         
   
  - Note of caution: ANY LR makes these assumptions:
      1 Linearity

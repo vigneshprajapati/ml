@@ -34,10 +34,10 @@ y = dataset.iloc[:, 2].values  # A VECTOR
 # Predicting a new result with Polynominal Regression
 y_pred = regressor.predict(6.5)
 
-# Visialize the Regression results
+# Visialize the SVR results
 plt.scatter(X, y, color='red')  # actual
 plt.plot(X, regressor.predict(X), color='blue')  # predicted
-plt.title('Truth or Bluff (REGRESSION MODEL)')
+plt.title('Truth or Bluff (SVR MODEL)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')
 plt.show()

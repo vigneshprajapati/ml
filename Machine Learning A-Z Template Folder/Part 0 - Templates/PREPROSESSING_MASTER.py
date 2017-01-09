@@ -1,10 +1,12 @@
-# Data Preprocessing Master Template ***PYTHON***
-
-##################################
-### check code     : cmd + i   ###
-### run code       : cmd enter ###
-### set working dir: Fn F5     ###
-##################################
+############# PYTHON #################
+####  Data Preprocessing Template #### 
+############# PYTHON #################
+######## Contains all modules ########
+############# PYTHON #################
+### check code     : cmd + i       ###
+### run code       : cmd enter     ###
+### set working dir: Fn F5         ###
+######################################
 
 # Import libraries
 import numpy as np
@@ -13,8 +15,8 @@ import pandas as pd
 
 # Import dataset
 dataset = pd.read_csv('Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 3].values
+X = dataset.iloc[:, :-1].values # Best to make X a MATRIX
+y = dataset.iloc[:, 3].values   # and y a VECTOR
 
 # If necessay: Fill missing data using Imputer class
 from sklearn.preprocessing import Imputer
@@ -47,3 +49,32 @@ from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
+
+# Fit SLR to the training set
+from sklearn.linear_model import LinearRegression
+# regressor (the 'machine') an object of the class
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+# Predict the Test set results
+y_pred = regressor.predict(X_test)
+y_pred_train = regressor.predict(X_train)
+
+# Visualise ***Training*** set results
+plt.scatter(X_train, y_train, color='red')
+plt.plot(X_train, y_pred_train, color='blue')
+plt.title('Salary vs Experience (TRAINING set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+
+# Visualise ***Test*** set results
+plt.scatter(X_test, y_test, color='red')
+# NOTE: the lin regression line was already done using Training set
+plt.plot(X_train, y_pred_train, color='green')
+plt.title('Salary vs Experience (TEST set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+
+

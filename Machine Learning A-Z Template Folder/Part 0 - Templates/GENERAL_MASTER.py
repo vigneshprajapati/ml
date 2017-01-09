@@ -41,3 +41,13 @@ plt.title('Truth or Bluff (REGRESSION MODEL)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')
 plt.show()
+
+# ALT: Visialize the Regression results HIGH RES
+X_grid = np.arange(min(X), max(X), 0.1) 
+X_grid = X_grid.reshape((len(X_grid), 1))
+plt.scatter(X, y, color='red')  # actual
+plt.plot(X, regressor.predict(X_grid), color='blue')  # predicted
+plt.title('Truth or Bluff (REGRESSION MODEL)')
+plt.xlabel('Position Level')
+plt.ylabel('Salary')
+plt.show()

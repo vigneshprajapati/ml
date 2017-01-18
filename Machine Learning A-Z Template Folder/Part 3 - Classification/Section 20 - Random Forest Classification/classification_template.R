@@ -15,7 +15,7 @@ split = sample.split(dataset$Purchased, SplitRatio = 0.75)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
-# Feature Scaling
+# Feature Scaling (optional) necessary if there are Euclidian distances to be processed
 training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 

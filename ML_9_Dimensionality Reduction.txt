@@ -83,9 +83,9 @@ that seperate the most the classes of the DVs.
 ###  KERNEL_PCA  ###
 ####################
 
-* non-linear seperation of classes
+* Use this when PCA does not work well and you need non-linear seperation of classes
 * remember non-linear problem is where classes do not seperate linearly
-* make a non-linear problem linear
+* KERNEL-PCA: make a non-linear problem linear
 
 
 
